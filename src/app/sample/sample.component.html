@@ -1,0 +1,17 @@
+{{name1}}
+<p>sample works!</p>
+<br />
+{{name}}
+<br />
+{{getName()}}
+<br />
+<input type="text" name="fsdfsd" (input)="setName($event)" [value]="name">
+<br />
+NgModel:
+<!-- ngModel -->
+<input type="text" name="fsdfsd" [(ngModel)]="name">
+
+<br />
+<br />
+<br />
+<input type="text" name="fsdfsd" [ngModel]="name" (ngModelChange)="name=$event">
