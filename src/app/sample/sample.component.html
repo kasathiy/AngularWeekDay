@@ -1,4 +1,4 @@
-{{name1}}
+<!-- {{name1}}
 <p>sample works!</p>
 <br />
 {{name}}
@@ -7,11 +7,49 @@
 <br />
 <input type="text" name="fsdfsd" (input)="setName($event)" [value]="name">
 <br />
-NgModel:
+NgModel: -->
 <!-- ngModel -->
-<input type="text" name="fsdfsd" [(ngModel)]="name">
+<!-- <input type="text" name="fsdfsd" [(ngModel)]="name"> -->
+<!-- 
+<br />
+<br />
+<br />
+<input type="text" name="fsdfsd" [ngModel]="name" (ngModelChange)="name=$event"> -->
 
-<br />
-<br />
-<br />
-<input type="text" name="fsdfsd" [ngModel]="name" (ngModelChange)="name=$event">
+
+<!-- Structural Directive: -->
+---------------------------------
+<!-- <input *ngIf="showDirective==false" value="Directive" />
+
+Directive:
+<table border=1>
+    <tr>
+        <th>
+            Array Values
+        </th>
+    </tr>
+    <div *ngFor="let elem of arrayElements">
+        <tr>
+            <td>
+                <input [value]="elem" />
+            </td>
+        </tr>
+    </div>
+</table> -->
+------------------------------------
+<br>
+<!-- Attribute Directives: -->
+<!-- ngClass -->
+<!-- <input [ngClass]="{inputClass:blueStylePresent==false}" value="Directive"> -->
+<!-- ngStyle -->
+<br>
+<!-- <input [ngStyle]="{backgroundColor:inputColor}" value="Directive2"> -->
+
+<!-- Component -->
+<!-- <app-test></app-test> -->
+
+<!-- Custom Directive -->
+<input value="Custom" id="input1" appHighlight>
+
+<input value="Custom1" id="input2" appHighlight>
+<input value="Custom2" id="input3" appHighlight>

@@ -8,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class SampleComponent implements OnInit {
   static name1: string = "Hello";
   name: string = "Hello";
+  blueStylePresent: boolean = false;
+  showDirective: boolean = true;
+  inputColor: string = "yellow";
+
+  arrayElements: Array<string> = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+
+
   constructor() { }
 
   ngOnInit() {
+
   }
 
   getName() {
@@ -22,4 +31,9 @@ export class SampleComponent implements OnInit {
     console.log("Event", event);
     this.name = event.target.value;
   }
+
+
+
 }
+
+
