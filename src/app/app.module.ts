@@ -7,12 +7,14 @@ import { SampleComponent } from './sample/sample.component';
 import { FormsModule } from '@angular/forms';
 import { TestComponent } from './test/test.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { DecoratePipe } from './pipes/decorate.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     SampleComponent,
     TestComponent,
-    HighlightDirective
+    HighlightDirective,
+    DecoratePipe
   ],
   imports: [
     BrowserModule,

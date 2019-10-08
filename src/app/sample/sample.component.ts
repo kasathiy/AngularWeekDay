@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class SampleComponent implements OnInit {
   static name1: string = "Hello";
   name: string = "Hello";
+  name2: string = "Abc";
+  date: Date = new Date();
   blueStylePresent: boolean = false;
   showDirective: boolean = true;
   inputColor: string = "yellow";
