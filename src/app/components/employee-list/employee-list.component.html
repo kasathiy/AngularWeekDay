@@ -1,0 +1,5 @@
+<div style="text-align: center">
+    <div class="employee_class" *ngFor="let employee of employees">
+        <app-employee [emp]="employee" (delete)="deleteEmployee($event)"></app-employee>
+    </div>
+</div>
