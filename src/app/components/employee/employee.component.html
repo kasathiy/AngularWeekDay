@@ -1,5 +1,5 @@
 <div><label>Employee Name:</label>{{emp.name | uppercase }}</div>
-<div><label>DOB:</label>&nbsp;&nbsp;{{emp.date_of_birth }}</div>
-<div><label>Position Held:</label>{{emp.position_held | decorate:"**":"**" }}</div>
+<div><label>DOB:</label>&nbsp;&nbsp;{{emp.dateOfBirth | date}}</div>
+<div><label>Position Held:</label>{{emp.positionHeld | decorate:"**":"**" }}</div>
 <div><input type="button" value="Delete" (click)="deleteFn(emp.key)" />
 </div>

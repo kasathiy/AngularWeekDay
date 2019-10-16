@@ -10,6 +10,11 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { DecoratePipe } from './pipes/decorate.pipe';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { DeleteService } from './services/delete.service';
+import { ObservableComponent } from './components/observable/observable.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HttpServiceComponent } from './components/http-service/http-service.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,15 +23,17 @@ import { EmployeeComponent } from './components/employee/employee.component';
     HighlightDirective,
     DecoratePipe,
     EmployeeListComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    ObservableComponent,
+    HttpServiceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   exports: [],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
