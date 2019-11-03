@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SampleComponent } from './sample/sample.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestComponent } from './test/test.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { DecoratePipe } from './pipes/decorate.pipe';
@@ -14,6 +14,24 @@ import { DeleteService } from './services/delete.service';
 import { ObservableComponent } from './components/observable/observable.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HttpServiceComponent } from './components/http-service/http-service.component';
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
+import { RouterModule } from '@angular/router';
+import { LoginComponent } from './components/login/login.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { ReactiveLoginComponent } from './components/reactive-login/reactive-login.component';
+import { AuthGuardGuard } from './auth-guard.guard';
+import { BasicAuthInterceptorService } from './services/basic-auth-interceptor.service';
+
+const appRoutes = [
+  {
+    path: "home", component: HomePageComponent,
+    canActivate: [AuthGuardGuard],
+    children: [
+      { path: "employeeList", component: EmployeeListComponent },
+      { path: "addEmployee", component: AddEmployeeComponent },
+      { path: "employee/:key", component: EmployeeComponent }]
+  },
+  { path: "", component: ReactiveLoginComponent }];
 
 @NgModule({
   declarations: [
@@ -25,15 +43,26 @@ import { HttpServiceComponent } from './components/http-service/http-service.com
     EmployeeListComponent,
     EmployeeComponent,
     ObservableComponent,
-    HttpServiceComponent
+    HttpServiceComponent,
+    AddEmployeeComponent,
+    LoginComponent,
+    HomePageComponent,
+    ReactiveLoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: BasicAuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

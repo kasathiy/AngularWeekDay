@@ -14,6 +14,19 @@ export class HttpServiceService {
 
   ngOnInit() {
   }
+  getEmployee(key): Observable<IEmployeeDTO> {
+    return this.httpService
+      .get("http://localhost:8081/getEmployee", { params: { param: key } })
+      .pipe(
+        map(response => {
+          return response as IEmployeeDTO;
+        })
+      );
+  }
+
+  public addEmployee(dto: IEmployeeDTO) {
+    return this.httpService.put("http://localhost:8081/addEmployee", dto);
+  }
 
   public getEmployees():Observable<Array<IEmployeeDTO>>{
 
