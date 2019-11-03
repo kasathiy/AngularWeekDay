@@ -1,0 +1,19 @@
+<h1>Reactive Model Form</h1>
+<form  (ngSubmit)="submit()" [formGroup]="loginForm">
+  <div class="form-group">
+    <label for="username" >UserName:</label>
+    <input id="username" type="text" name="username"  formControlName="username" >
+    <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">Username is required</span>
+</div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input id="password" name="password" type="password" formControlName="password" >
+    <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').errors?.minlength" class="help-block">Minimum 4 letters is mandatory</span>
+    <span *ngIf="!loginForm.get('password').valid && !loginForm.get('password').errors?.minlength 
+    && loginForm.get('password').touched" class="help-block">Password is required</span>
+  </div>
+    <button [disabled]="!loginForm.valid" type="submit" class="submit btn btn-primary">Submit</button>
+  <div *ngIf="error" class="alert alert-danger">
+    <strong>Authentication Failed !</strong>
+  </div>
+</form>
